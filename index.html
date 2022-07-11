@@ -5,6 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recruitment Drive Form | Demo</title>
+    <script>
+        function validateemail()
+        {
+            if( document.myform.firstname.value == "" ) {
+         alert( "Please provide your name!" );
+         document.myform.name.focus() ;
+         return false;
+      }
+            if( document.myform.email.value == "" ) {
+            alert( "Please provide your Email!" );
+             document.myform.email.focus() ;
+            return false;
+             }
+            var x=document.myform.email.value;
+            var atposition=x.indexOf("@");
+            var dotposition=x.lastIndexOf(".");
+            if(atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length)
+                {
+                    alert("Please enter a valid email address\n at position: "+atposition+"\n dotposition: "+dotposition);
+                    return false;
+                }
+                
+                if( document.myform.phnno.value == "" ) {
+            alert( "Please provide your Phone Number!" );
+             document.myform.email.focus() ;
+            return false;
+             }
+                 var num=document.myform.phnno.value; 
+    if (isNaN(num)){  
+        alert( "Please enter valid Phone Number!" );
+         document.myform.email.focus() ;
+         return false;
+        }  
+      return true;
+   }
+    </script>
     <style>
         .div1 {
   background: url(https://t3.ftcdn.net/jpg/04/12/12/98/360_F_412129819_HaLS1MLvkJBPaBPMagPUOYm1SfAcaT7h.jpg);
@@ -41,7 +77,7 @@
                   </p><br><br>
         <h2 style="color:rgb(137, 137, 137); background-color:rgb(248, 242, 242) ">Personal Information</h2>
         <table  border="2" cellspacing="6" cellpadding="7">
-        <form method="post">
+        <form method="post" name="myform" action="#" >
             <tr>
                 <td><label>
                 <b>Full Name </b><b style="color:red">*</b> <b>:</b> 
@@ -235,7 +271,7 @@
             I also understand and agree that the terms and conditions of my employment may  be  changed,  with  or  without cause,  and with or <br>
             without notice, at any time by the company.  
          </p><br>
-         <form method="post">
+         <form method="post" onsubmit="return validateemail();">
             <label>
                 <b>Signature : </b>
              </label>
